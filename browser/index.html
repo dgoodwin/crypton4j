@@ -1,0 +1,28 @@
+
+<!doctype html>
+<html>
+<head>
+  <title>Crypton Account Generation Example</title>
+  <style>
+  #progress {
+    display: none;
+  }
+  </style>
+</head>
+<body>
+Hello world!<p/>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="crypton.js"></script>
+<script language="Javascript">
+    var toType = function(obj) {
+      return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase()
+    }
+//    var salt = crypton.randomBytes(32);
+    var salt = [632771362,-2080748983,-33610805,864647320,-1281357746,-1878116635,182594016,-1559821437];
+    var key = sjcl.misc.pbkdf2('password', salt);
+    document.write("salt = " + salt + "<p/>");
+    document.write("salt type = " + toType(salt[0]) + "<p/>");
+    document.write("key = " + key + "<p/>");
+</script>
+</body>
+</html>
